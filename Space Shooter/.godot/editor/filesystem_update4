@@ -1,11 +1,10 @@
-res://cenas/ui.tscn
-res://scripts/jogo.gd
 res://cenas/player.tscn
+res://scripts/Control.gd
 res://cenas/jogo.tscn
 res://cenas/laser.tscn
 res://cenas/inimigo.tscn
 res://cenas/mob_spawner.tscn
+res://cenas/ui.tscn
 res://cenas/game_over_ui.tscn
-res://scripts/laser.gd
-res://scripts/inimigo.gd
-res://scripts/player.gd
+res://cenas/rocha.tscn
+res://cenas/menu_principal.tscn

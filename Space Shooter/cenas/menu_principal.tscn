@@ -1,0 +1,85 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgswi6eh3jarn"]
+
+[ext_resource type="Script" path="res://scripts/Control.gd" id="1_bjhv4"]
+[ext_resource type="Texture2D" uid="uid://cjijxt8a61qbk" path="res://kenney_space-shooter-redux/Backgrounds/darkPurple.png" id="2_v10md"]
+[ext_resource type="FontFile" uid="uid://bmfy50b7h44t3" path="res://kenney_space-shooter-redux/Bonus/kenvector_future.ttf" id="3_xpbxt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hp38h"]
+font = ExtResource("3_xpbxt")
+font_size = 48
+
+[node name="MenuPrincipal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bjhv4")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1920, 0)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_v10md")
+stretch_mode = 1
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -200.0
+offset_right = 300.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SpaceShooterTitulo" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -246.0
+offset_right = 246.0
+offset_bottom = 54.0
+grow_horizontal = 2
+text = "Space Shooter"
+label_settings = SubResource("LabelSettings_hp38h")
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.5
+offset_top = -45.0
+offset_right = 64.5
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BotaoJogar" type="Button" parent="Panel/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_xpbxt")
+theme_override_font_sizes/font_size = 30
+text = "Jogar"
+
+[node name="BotaoSair" type="Button" parent="Panel/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_xpbxt")
+theme_override_font_sizes/font_size = 30
+text = "Sair"
+
+[connection signal="pressed" from="Panel/GridContainer/BotaoJogar" to="." method="_on_botao_jogar_pressed"]
+[connection signal="pressed" from="Panel/GridContainer/BotaoSair" to="." method="_on_botao_sair_pressed"]

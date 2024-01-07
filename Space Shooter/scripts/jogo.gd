@@ -26,6 +26,10 @@ func _on_mob_spawner_spawnar_inimigo(inimigo):
 	inimigo.connect("atribuir_pontos", ao_atribuir_pontos)
 	spawner.add_child(inimigo)
 
+func _on_mob_spawner_spawnar_rocha(rocha):
+	rocha.connect("atribuir_pontos", ao_atribuir_pontos)
+	spawner.add_child(rocha)
+
 func ao_atribuir_pontos(pontos):
 	pontos_jogador += pontos
 	ui.definir_pontuacao(pontos_jogador)

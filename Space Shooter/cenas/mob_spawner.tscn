@@ -1,14 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8t6ur7xaukvp"]
+[gd_scene load_steps=4 format=3 uid="uid://c8t6ur7xaukvp"]
 
 [ext_resource type="Script" path="res://scripts/mob_spawner.gd" id="1_2dqev"]
 [ext_resource type="PackedScene" uid="uid://dqlld8hoxc2ma" path="res://cenas/inimigo.tscn" id="2_844g7"]
+[ext_resource type="PackedScene" uid="uid://dy2qtxbcmtn37" path="res://cenas/rocha.tscn" id="3_4yujj"]
 
 [node name="MobSpawner" type="Node2D"]
 script = ExtResource("1_2dqev")
 cena_inimigo = ExtResource("2_844g7")
+cena_rocha = ExtResource("3_4yujj")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="TimerInimigo" type="Timer" parent="."]
 wait_time = 2.0
+autostart = true
+
+[node name="TimerRocha" type="Timer" parent="."]
+wait_time = 3.0
 autostart = true
 
 [node name="PosicoesSpawn" type="Node2D" parent="."]
@@ -28,4 +34,5 @@ position = Vector2(2028, 776)
 [node name="Marker2D5" type="Marker2D" parent="PosicoesSpawn"]
 position = Vector2(2028, 957)
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="TimerInimigo" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="TimerRocha" to="." method="_on_timer_rocha_timeout"]
