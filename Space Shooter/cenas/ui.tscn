@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://dyr7ibhndgcos"]
+
+[ext_resource type="Texture2D" uid="uid://gb4illdqok8i" path="res://kenney_space-shooter-redux/Backgrounds/blue.png" id="1_8ow0s"]
+[ext_resource type="Script" path="res://scripts/ui.gd" id="1_feyc1"]
+[ext_resource type="FontFile" uid="uid://bmfy50b7h44t3" path="res://kenney_space-shooter-redux/Bonus/kenvector_future.ttf" id="2_5nd5q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4wsaw"]
+content_margin_left = 20.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_lik7k"]
+font = ExtResource("2_5nd5q")
+font_size = 40
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_btd1k"]
+content_margin_right = 20.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_lunfe"]
+font = ExtResource("2_5nd5q")
+font_size = 40
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_feyc1")
+
+[node name="BackgroundUI" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 100.0
+texture = ExtResource("1_8ow0s")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Pontuacao" type="Label" parent="."]
+layout_mode = 1
+offset_right = 540.0
+offset_bottom = 100.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4wsaw")
+text = "Pontuação: 
+"
+label_settings = SubResource("LabelSettings_lik7k")
+vertical_alignment = 1
+
+[node name="Vidas" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -226.0
+offset_bottom = 100.0
+grow_horizontal = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_btd1k")
+text = "Vidas: "
+label_settings = SubResource("LabelSettings_lunfe")
+vertical_alignment = 1

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3h52jeecomce"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_k3fuq"]
+[ext_resource type="Texture2D" uid="uid://b56o0wpmalxe7" path="res://kenney_space-shooter-redux/PNG/playerShip1_red.png" id="1_lxdfw"]
+
+[node name="Player" type="CharacterBody2D"]
+rotation = 1.5708
+script = ExtResource("1_k3fuq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_lxdfw")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-9, -37, 8, -37, 12, -13, 36, 1, 46, -7, 49, -6, 47, 25, 42, 22, 13, 28, 8, 38, -8, 38, -14, 29, -40, 22, -45, 25, -50, -6, -44, -8, -41, -1, -37, 1, -12, -12)

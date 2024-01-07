@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8t6ur7xaukvp"]
+
+[ext_resource type="Script" path="res://scripts/mob_spawner.gd" id="1_2dqev"]
+[ext_resource type="PackedScene" uid="uid://dqlld8hoxc2ma" path="res://cenas/inimigo.tscn" id="2_844g7"]
+
+[node name="MobSpawner" type="Node2D"]
+script = ExtResource("1_2dqev")
+cena_inimigo = ExtResource("2_844g7")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="PosicoesSpawn" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="PosicoesSpawn"]
+position = Vector2(2028, 152)
+
+[node name="Marker2D2" type="Marker2D" parent="PosicoesSpawn"]
+position = Vector2(2028, 385)
+
+[node name="Marker2D3" type="Marker2D" parent="PosicoesSpawn"]
+position = Vector2(2028, 589)
+
+[node name="Marker2D4" type="Marker2D" parent="PosicoesSpawn"]
+position = Vector2(2028, 776)
+
+[node name="Marker2D5" type="Marker2D" parent="PosicoesSpawn"]
+position = Vector2(2028, 957)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

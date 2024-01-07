@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://bw70fwni0fkiw"]
+
+[ext_resource type="PackedScene" uid="uid://c3h52jeecomce" path="res://cenas/player.tscn" id="1_e43cn"]
+[ext_resource type="Script" path="res://scripts/jogo.gd" id="1_plv3s"]
+[ext_resource type="PackedScene" uid="uid://dot6f5pce03pm" path="res://cenas/game_over_ui.tscn" id="2_82i6n"]
+[ext_resource type="PackedScene" uid="uid://c8t6ur7xaukvp" path="res://cenas/mob_spawner.tscn" id="3_xsnvb"]
+[ext_resource type="PackedScene" uid="uid://dyr7ibhndgcos" path="res://cenas/ui.tscn" id="4_8qskg"]
+[ext_resource type="Texture2D" uid="uid://cjijxt8a61qbk" path="res://kenney_space-shooter-redux/Backgrounds/darkPurple.png" id="6_q7716"]
+
+[node name="Jogo" type="Node2D"]
+script = ExtResource("1_plv3s")
+cena_game_over = ExtResource("2_82i6n")
+
+[node name="Player" parent="." instance=ExtResource("1_e43cn")]
+position = Vector2(819, 518)
+
+[node name="MobSpawner" parent="." instance=ExtResource("3_xsnvb")]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="HUD" instance=ExtResource("4_8qskg")]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1920, 0)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("6_q7716")
+stretch_mode = 1
+
+[connection signal="levou_dano" from="Player" to="." method="_on_player_levou_dano"]
+[connection signal="spawnar_inimigo" from="MobSpawner" to="." method="_on_mob_spawner_spawnar_inimigo"]

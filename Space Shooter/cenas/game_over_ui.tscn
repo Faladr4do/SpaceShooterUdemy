@@ -1,0 +1,82 @@
+[gd_scene load_steps=5 format=3 uid="uid://dot6f5pce03pm"]
+
+[ext_resource type="Script" path="res://scripts/game_over_ui.gd" id="1_8fqvx"]
+[ext_resource type="FontFile" uid="uid://bmfy50b7h44t3" path="res://kenney_space-shooter-redux/Bonus/kenvector_future.ttf" id="1_g4jqq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1oluw"]
+font = ExtResource("1_g4jqq")
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_dn082"]
+font = ExtResource("1_g4jqq")
+font_size = 32
+
+[node name="GameOverUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8fqvx")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -150.0
+offset_right = 250.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOver" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -142.0
+offset_right = 142.0
+offset_bottom = 45.0
+grow_horizontal = 2
+text = "Game Over
+"
+label_settings = SubResource("LabelSettings_1oluw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Pontuacao" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.0
+offset_top = -18.0
+offset_right = 185.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Pontuação: 9999
+"
+label_settings = SubResource("LabelSettings_dn082")
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_g4jqq")
+theme_override_font_sizes/font_size = 32
+text = "Jogar Novamente"
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]
