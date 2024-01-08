@@ -3,7 +3,7 @@ extends Area2D
 signal atribuir_pontos(pontos)
 
 @export var velocidade : float = 300
-@export var pontos : int = 10
+@export var pontos : int = 30
 
 func _ready():
 	add_to_group("Inimigo")

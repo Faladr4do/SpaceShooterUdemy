@@ -10,11 +10,11 @@ cena_inimigo = ExtResource("2_844g7")
 cena_rocha = ExtResource("3_4yujj")
 
 [node name="TimerInimigo" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 0.5
 autostart = true
 
 [node name="TimerRocha" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 0.085
 autostart = true
 
 [node name="PosicoesSpawn" type="Node2D" parent="."]

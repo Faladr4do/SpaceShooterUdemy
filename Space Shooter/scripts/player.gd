@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 signal levou_dano
 
-@export var velocidade : float = 300
+@export var velocidade : float = 700
 @export var cena_laser : PackedScene
 
 var pode_disparar = true
@@ -25,7 +25,7 @@ func _physics_process(delta):
 		var laser_instanciar = cena_laser.instantiate()
 		owner.add_child(laser_instanciar)
 		laser_instanciar.global_position = $Marker2D.global_position
-		await get_tree().create_timer(0.25).timeout
+		await get_tree().create_timer(0.5).timeout
 		pode_disparar = true
 	
 	move_and_slide()
