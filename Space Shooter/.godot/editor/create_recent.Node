@@ -1,3 +1,8 @@
+VisibleOnScreenNotifier2D
+CollisionShape2D
+Sprite2D
+Area2D
+Marker2D
 GridContainer
 Button
 MenuButton
@@ -8,8 +13,3 @@ ParallaxLayer
 ParallaxBackground
 Timer
 GPUParticles2D
-CanvasLayer
-Marker2D
-Node2D
-VisibleOnScreenNotifier2D
-Sprite2D

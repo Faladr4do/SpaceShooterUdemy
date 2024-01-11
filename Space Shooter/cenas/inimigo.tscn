@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqlld8hoxc2ma"]
+[gd_scene load_steps=5 format=3 uid="uid://dqlld8hoxc2ma"]
 
 [ext_resource type="Script" path="res://scripts/inimigo.gd" id="1_336h1"]
 [ext_resource type="Texture2D" uid="uid://dl3sjru2pwei6" path="res://kenney_space-shooter-redux/PNG/Enemies/enemyRed1.png" id="1_m7bno"]
+[ext_resource type="PackedScene" uid="uid://bnh8hn41e4f02" path="res://cenas/power_up.tscn" id="2_e4bdy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ub1uj"]
 radius = 43.0116
@@ -9,6 +10,7 @@ radius = 43.0116
 [node name="Inimigo" type="Area2D"]
 rotation = 1.5708
 script = ExtResource("1_336h1")
+cena_power = ExtResource("2_e4bdy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_m7bno")

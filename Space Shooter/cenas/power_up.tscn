@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnh8hn41e4f02"]
+
+[ext_resource type="Script" path="res://PowerUp.gd" id="1_u0n7d"]
+[ext_resource type="Texture2D" uid="uid://c576x1ib2hscm" path="res://kenney_space-shooter-redux/PNG/Power-ups/powerupBlue_bolt.png" id="2_vqt02"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gl1r8"]
+size = Vector2(33, 32)
+
+[node name="PowerUp" type="Area2D"]
+script = ExtResource("1_u0n7d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_vqt02")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gl1r8")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(27, 0)
+
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

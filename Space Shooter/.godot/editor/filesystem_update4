@@ -1,4 +1,5 @@
 res://cenas/player.tscn
+res://scripts/player.gd
 res://cenas/jogo.tscn
 res://cenas/laser.tscn
 res://cenas/inimigo.tscn
@@ -7,4 +8,7 @@ res://cenas/ui.tscn
 res://cenas/game_over_ui.tscn
 res://cenas/rocha.tscn
 res://cenas/menu_principal.tscn
-res://scripts/player.gd
+res://scripts/inimigo.gd
+res://PowerUp.gd
+res://scripts/laser.gd
+res://cenas/power_up.tscn
