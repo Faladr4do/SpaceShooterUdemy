@@ -10,7 +10,6 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 
 func _on_body_entered(body):
 	body.power_up = true
-	body.velocidade = body.velocidade * 1.2
 	body.power_up_handler(tempo)
 
 func power_heal():
