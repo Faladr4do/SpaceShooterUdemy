@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var velocidade : float = 300
+@export var velocidade : float = 800
 
 func _process(delta):
 	global_position.x += velocidade * delta

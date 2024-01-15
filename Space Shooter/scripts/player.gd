@@ -4,6 +4,9 @@ signal levou_dano
 
 @export var velocidade : float = 700
 @export var cena_laser : PackedScene
+@export var timer_power : Timer
+
+var power_up = false
 
 var pode_disparar = true
 
@@ -21,15 +24,23 @@ func _physics_process(delta):
 	if Input.is_action_pressed("direita"):
 		velocity.x = velocidade
 	if Input.is_action_pressed("disparar") and pode_disparar:
-		pode_disparar = false
-		var laser_instanciar = cena_laser.instantiate()
-		owner.add_child(laser_instanciar)
-		laser_instanciar.global_position = $DoubleGun.global_position
-		laser_instanciar = cena_laser.instantiate()
-		owner.add_child(laser_instanciar)
-		laser_instanciar.global_position = $DoubleGun2.global_position
-		await get_tree().create_timer(0.5).timeout
-		pode_disparar = true
+		if !power_up:
+			pode_disparar = false
+			var laser_instanciar = cena_laser.instantiate()
+			owner.add_child(laser_instanciar)
+			laser_instanciar.global_position = $Marker2D.global_position
+			await get_tree().create_timer(0.5).timeout
+			pode_disparar = true
+		if power_up:
+			pode_disparar = false
+			var laser_instanciar = cena_laser.instantiate()
+			owner.add_child(laser_instanciar)
+			laser_instanciar.global_position = $DoubleGun.global_position
+			laser_instanciar = cena_laser.instantiate()
+			owner.add_child(laser_instanciar)
+			laser_instanciar.global_position = $DoubleGun2.global_position
+			await get_tree().create_timer(0.25).timeout
+			pode_disparar = true
 	#if Input.is_action_pressed("disparar") and pode_disparar:
 		#pode_disparar = false
 		#var laser_instanciar = cena_laser.instantiate()
@@ -51,3 +62,8 @@ func levar_dano():
 
 func morte():
 	queue_free()
+
+func power_up_handler(tempo : float = 0):
+	timer_power.start(tempo)
+	await timer_power.timeout
+	power_up = false

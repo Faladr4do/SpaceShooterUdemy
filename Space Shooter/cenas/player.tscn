@@ -4,10 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://b56o0wpmalxe7" path="res://kenney_space-shooter-redux/PNG/playerShip1_red.png" id="1_lxdfw"]
 [ext_resource type="PackedScene" uid="uid://bm77c3pff6ril" path="res://cenas/laser.tscn" id="2_ubxik"]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("timer_power")]
 rotation = 1.5708
 script = ExtResource("1_k3fuq")
 cena_laser = ExtResource("2_ubxik")
+timer_power = NodePath("PowerUpTimer")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_lxdfw")
@@ -23,3 +24,5 @@ position = Vector2(-47, -7.99983)
 
 [node name="DoubleGun2" type="Marker2D" parent="."]
 position = Vector2(47, -8.00017)
+
+[node name="PowerUpTimer" type="Timer" parent="."]
